@@ -2,7 +2,6 @@ import requests
 from flask import Flask, request
 import logging
 import json
-import random
 
 app = Flask(__name__)
 
@@ -32,7 +31,6 @@ def handle_dialog(res, req):
         res['response']['text'] = 'Привет! Назови своё имя!'
         sessionStorage[user_id] = {
             'first_name': None,  # здесь будет храниться имя
-            'game_started': False  # здесь информация о том, что пользователь начал игру. По умолчанию False
         }
         return
 
