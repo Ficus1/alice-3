@@ -41,20 +41,9 @@ def handle_dialog(res, req):
         else:
             sessionStorage[user_id]['first_name'] = first_name
             # создаём пустой массив, в который будем записывать города, которые пользователь уже отгадал
-            sessionStorage[user_id]['guessed_cities'] = []
             # как видно из предыдущего навыка, сюда мы попали, потому что пользователь написал своем имя.
             # Предлагаем ему сыграть и два варианта ответа "Да" и "Нет".
-            res['response']['text'] = f'Приятно познакомиться, {first_name.title()}. Я Алиса. Отгадаешь город по фото?'
-            res['response']['buttons'] = [
-                {
-                    'title': 'Да',
-                    'hide': True
-                },
-                {
-                    'title': 'Нет',
-                    'hide': True
-                }
-            ]
+            res['response']['text'] = f'Приятно познакомиться, {first_name.title()}. Я Алиса. Напиши мне Переведи слово и я его тебе переведу'
     else:
         if 'Переведи слово' in req['request']['original_utterance']:
             res['response']['text'] = translate(' '.join(req['request']['original_utterance'].split()[2:]))
