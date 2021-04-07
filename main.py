@@ -57,7 +57,7 @@ def handle_dialog(res, req):
             ]
     else:
         if 'Переведи слово' in req['request']['original_utterance']:
-            res['response']['text'] = translate(' '.join(req['request']['original_utterance'].split()[1:]))
+            res['response']['text'] = translate(' '.join(req['request']['original_utterance'].split()[2:]))
         else:
             res['response']['text'] = 'Напиши Переведи слово и я его тебе переведу'
 
